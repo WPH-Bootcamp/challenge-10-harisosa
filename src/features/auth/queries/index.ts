@@ -1,1 +1,2 @@
-export * from './useAuthUserQuery'
+export * from './useAuthUserQuery';
+export * from './query-keys';

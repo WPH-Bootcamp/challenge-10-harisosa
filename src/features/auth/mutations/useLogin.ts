@@ -3,6 +3,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import {  authStorage } from "@/lib";
 import { LoginPayload } from "@/features/auth/types";
 import { login } from "@/features/auth/api";
+import { authQueryKeys } from "../queries";
 
 export const useLogin = () => {
   const qc = useQueryClient();
@@ -14,7 +15,9 @@ export const useLogin = () => {
     },
     onSuccess: (data) => {
       authStorage.setToken(data.token);
-      qc.invalidateQueries({ queryKey: ["auth", "me"] });
+      qc.invalidateQueries({
+        queryKey: authQueryKeys.me(),
+      });
     },
   });
 };

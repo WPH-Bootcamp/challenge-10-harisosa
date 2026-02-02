@@ -24,6 +24,6 @@ export const register = async (
 };
 
 export const getAuthUser = async (): Promise<AuthUserResponse> => {
-  const { data } = await api.get<AuthUserResponse>("/user/me");
+  const { data } = await api.get<AuthUserResponse>("/users/me");
   return data;
 };
