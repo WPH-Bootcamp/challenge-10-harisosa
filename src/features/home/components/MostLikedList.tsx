@@ -1,7 +1,7 @@
-import React, { useMemo } from "react";
-import type { Article } from "@/features/home/types/article";
-import { ArticleActions } from "@/features/home/components/ArticleActions";
-import { pickFirstParagraphHtml, sanitizeHtml } from "@/utils";
+import React from "react";
+import type { Article } from "@/features/articles/types/article";
+import { ArticleActions } from "@/features/articles/components/ArticleActions";
+import { pickFirstParagraphHtml } from "@/utils";
 
 type MostLikedListProps = {
   title: string;

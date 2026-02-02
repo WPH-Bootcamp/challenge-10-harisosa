@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import Image from "next/image";
-import type { Article } from "@/features/home/types/article";
-import { ArticleActions } from "@/features/home/components/ArticleActions";
+import type { Article } from "@/features/articles/types/article";
+import { ArticleActions } from "@/features/articles/components/ArticleActions";
 import { dateFormatter, getInitial, pickFirstParagraphHtml, sanitizeHtml } from "@/utils";
 
 type ArticleCardProps = {

@@ -1,6 +1,6 @@
 import React from "react";
-import type { Article } from "@/features/home/types/article";
-import { ArticleCard } from "@/features/home/components/ArticleCard";
+import type { Article } from "@/features/articles/types/article";
+import { ArticleCard } from "@/features/articles/components/ArticleCard";
 
 type ArticleListProps = {
   title: string;

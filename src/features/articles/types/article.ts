@@ -12,7 +12,7 @@ export type Article = {
   tags: string[];
   imageUrl: string;
   imagePublicId: string;
-  createdAt: string; // ISO
+  createdAt: string;
   likes: number;
   comments: number;
   author: ArticleAuthor;

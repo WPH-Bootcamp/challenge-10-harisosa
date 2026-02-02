@@ -9,7 +9,7 @@ export default function MainLayout({
   return (
     <>
       <Navbar />
-      <main className="lg:px-30 px-4">{children}</main>
+      <main className="lg:px-30 px-4 py-12">{children}</main>
     </>
   );
 }

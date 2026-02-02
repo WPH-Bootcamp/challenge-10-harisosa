@@ -1,4 +1,4 @@
-import type { Article, ArticlesListResponse } from "@/features/home/types/article";
+import type { Article, ArticlesListResponse } from "@/features/articles/types/article";
 import { api } from "@/lib";
 
 export type GetArticlesParams = {

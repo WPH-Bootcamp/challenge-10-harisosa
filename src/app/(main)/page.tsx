@@ -1,7 +1,8 @@
 'use client'
 
 import { PaginationBar } from "@/components/layout/pagination/PaginationBar";
-import { ArticleList, MostLikedList } from "@/features/home/components";
+import { ArticleList } from "@/features/articles/components";
+import { MostLikedList } from "@/features/home/components";
 import { useMostLikedArticles } from "@/features/home/queries/useMostLikedArticles";
 import { useRecommendedArticles } from "@/features/home/queries/useRecommendedArticles";
 import { useMemo, useState } from "react";
