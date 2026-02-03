@@ -1,6 +1,6 @@
 import React from "react";
 import type { Article } from "@/features/articles/types/article";
-import { ArticleActions } from "@/features/articles/components/ArticleActions";
+import { ActionButton } from "@/features/articles/components/ui/ActionButon";
 import { pickFirstParagraphHtml } from "@/utils";
 
 type MostLikedListProps = {
@@ -36,7 +36,7 @@ export const MostLikedList: React.FC<MostLikedListProps> = ({
                 />
 
                 <div className="mt-3">
-                  <ArticleActions
+                  <ActionButton
                     likes={it.likes}
                     comments={it.comments}
                   />

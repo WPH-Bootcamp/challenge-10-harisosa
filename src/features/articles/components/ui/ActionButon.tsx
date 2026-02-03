@@ -1,12 +1,14 @@
 import React from "react";
 import { MessageCircle, ThumbsUp } from "lucide-react";
 
-type ArticleActionsProps = {
+type ActionButtonProps = {
   likes?: number;
   comments?: number;
+  onClickLike? : () => void;
+  onClickComment? : () => void;
 };
 
-export const ArticleActions: React.FC<ArticleActionsProps> = ({
+export const ActionButton: React.FC<ActionButtonProps> = ({
   likes,
   comments,
 }) => {

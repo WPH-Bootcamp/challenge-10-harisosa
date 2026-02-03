@@ -10,7 +10,7 @@ import { useMemo, useState } from "react";
 export default function HMainPage() {
   const [page, setPage] = useState<number>(1);
 
-  const listQuery = useRecommendedArticles({ page, limit: 20 });
+  const listQuery = useRecommendedArticles({ page, limit: 5 });
   const mostLikedQuery = useMostLikedArticles();
 
   const articles = listQuery.data?.data ?? [];
@@ -40,6 +40,7 @@ export default function HMainPage() {
             <>
               <ArticleList title="Recommend For You" articles={articles} />
               <PaginationBar
+                className="mt-8"
                 page={page}
                 totalPages={totalPages}
                 onChange={setPage}

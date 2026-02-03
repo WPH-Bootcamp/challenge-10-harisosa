@@ -1,4 +1,3 @@
-// src/components/layout/navbar/Navbar.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -24,12 +23,12 @@ export const Navbar: React.FC = () => {
   const closeMobileSearch = () => setMobileSearchOpen(false);
 
   return (
-    <header className="w-full bg-white">
+    <header className="w-full bg-white fixed top-0 z-50">
       <div className="px-3 py-3 md:px-30 md:py-4">
         <div className="flex min-h-11 items-center justify-between">
           <NavbarLogo />
 
-          <div className="hidden md:flex flex-1 justify-center px-10">
+          <div className="hidden md:flex w-94.25 justify-center px-10">
             <NavbarSearch />
           </div>
 
