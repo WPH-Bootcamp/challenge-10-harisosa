@@ -21,7 +21,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
     () => pickFirstParagraphHtml(article.content),
     [article.content]
   );
-  const { mutate, isPending } = useLikePost();
+  const { mutate } = useLikePost();
   const { openCommentModal } = useCommentsModal();
   const goToDetail = () => {
     router.push(`/articles/${article.id}`);
@@ -60,7 +60,8 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
               likes={article.likes}
               comments={article.comments}
               onClickComment={() => openCommentModal(article.id)}
-              onClickLike={() => mutate(article.id)}
+              onClickLike={() => mutate(article.id)
+}
             />
           </div>
         </div>
