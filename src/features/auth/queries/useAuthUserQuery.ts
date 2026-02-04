@@ -13,6 +13,6 @@ export const useAuthUserQuery = () => {
     queryKey: authQueryKeys.me(),
     queryFn: getAuthUser,
     enabled: hasToken,
-    retry: false,
+    staleTime: 5 * 60 * 1000, // biar ga refetch terus
   });
 };

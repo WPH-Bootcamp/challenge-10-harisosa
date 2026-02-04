@@ -1,7 +1,7 @@
 import React from "react";
 import { Tags } from "../ui/Tags";
-import { ArticleMetaBar } from "./ArticleMetaBar";
 import { Article } from "../../types";
+import { ActionButton, Author } from "../ui";
 
 type ArticleDetailHeaderProps = {
   article: Article
@@ -18,7 +18,15 @@ export const ArticleDetailHeader: React.FC<ArticleDetailHeaderProps> = ({
       <div className="flex flex-wrap items-center gap-2">
         <Tags tags={article.tags} />
       </div>
-      <ArticleMetaBar article={article} />
+      <div className="mt-4 flex flex-col justify-start">
+        <Author author={article.author} datePost={article.createdAt} />
+
+        <div onClick={(e) => e.stopPropagation()}>
+          <ActionButton
+            likes={article.likes}
+            comments={article.comments} />
+        </div>
+      </div>
     </header>
   );
 };
