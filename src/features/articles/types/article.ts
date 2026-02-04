@@ -1,22 +1,4 @@
-export type ArticleAuthor = {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-};
-
-export type Article = {
-  id: number;
-  title: string;
-  content: string;
-  tags: string[];
-  imageUrl: string;
-  imagePublicId: string;
-  createdAt: string;
-  likes: number;
-  comments: number;
-  author: ArticleAuthor;
-};
+import { Article } from "@/shared/types/article";
 
 export type ArticlesListResponse = {
   data: Article[];

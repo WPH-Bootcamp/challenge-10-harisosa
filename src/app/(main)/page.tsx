@@ -7,7 +7,7 @@ import { useMostLikedArticles } from "@/features/home/queries/useMostLikedArticl
 import { useRecommendedArticles } from "@/features/home/queries/useRecommendedArticles";
 import { useMemo, useState } from "react";
 
-export default function HMainPage() {
+export default function MainPage() {
   const [page, setPage] = useState<number>(1);
 
   const listQuery = useRecommendedArticles({ page, limit: 5 });

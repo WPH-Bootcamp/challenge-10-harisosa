@@ -6,6 +6,7 @@ import { AuthCard } from "@/features/auth/components/AuthCard";
 import { AuthForm } from "@/features/auth/components/AuthForm";
 import { useLogin } from "@/features/auth/mutations";
 
+
 const LoginPage: React.FC = () => {
   const router = useRouter();
   const loginMutation = useLogin();

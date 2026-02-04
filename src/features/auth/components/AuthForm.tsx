@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { FormField } from "@/shared/components/forms/FormField";
-import { PasswordField } from "@/features/auth/components/PasswordField";
+import { PasswordField } from "@/shared/components/forms/PasswordField";
 import { AuthMode, AuthValues, useAuthFormModel } from "@/features/auth/components/AuthFormModel";
 
 type AuthFormProps = {

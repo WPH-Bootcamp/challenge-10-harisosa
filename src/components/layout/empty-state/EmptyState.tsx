@@ -1,7 +1,7 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 import Image from "next/image";
 
-type EmptyStateProps = {
+interface EmptyStateProps extends PropsWithChildren {
   title: string;
   img: string;
   description?: string;
@@ -15,10 +15,11 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
   description,
   ctaLabel,
   onCtaClick,
+  children
 }) => {
   return (
     <div className="flex flex-1 items-center justify-center px-4 py-16 sm:px-8 lg:px-16 2xl:px-24">
-      <div className="flex max-w-md flex-col items-center text-center">
+      <div className="flex flex-col items-center text-center">
         <Image
           src={img}
           alt="No results"
@@ -44,6 +45,9 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
             {ctaLabel}
           </button>
         )}
+        {
+          children
+        }
       </div>
     </div>
   );

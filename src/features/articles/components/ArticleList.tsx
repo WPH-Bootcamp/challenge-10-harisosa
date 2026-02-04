@@ -1,6 +1,6 @@
+import { ArticleCardWithAction } from "@/features/articles/components/ArticleCardWithAction";
+import { Article } from "@/shared/types";
 import React from "react";
-import type { Article } from "@/features/articles/types/article";
-import { ArticleCard } from "@/features/articles/components/ArticleCard";
 
 type ArticleListProps = {
   title: string;
@@ -14,7 +14,7 @@ export const ArticleList: React.FC<ArticleListProps> = ({ title, articles }) => 
 
       <div className="mt-6 space-y-8">
         {articles.map((a) => (
-          <ArticleCard key={String(a.id)} article={a} />
+          <ArticleCardWithAction key={String(a.id)} article={a} />
         ))}
       </div>
     </section>

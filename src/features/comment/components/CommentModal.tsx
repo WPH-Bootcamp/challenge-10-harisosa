@@ -14,7 +14,7 @@ import { CommentsPanel } from "./CommentsPanel";
 import { useGetComments } from "../queries/useGetComments";
 
 import { usePostComment } from "../mutations";
-import { useAuthUserQuery } from "@/features/auth/queries";
+import { useGetCurrentUser } from "@/hooks";
 
 type CommentsModalProps = {
   open: boolean;
@@ -30,7 +30,7 @@ export const CommentsModal: React.FC<CommentsModalProps> = ({
 }) => {
   const enabled = open && !!postId && postId > 0;
 
-  const {data: currentUser} = useAuthUserQuery();
+  const {data: currentUser} = useGetCurrentUser();
   const {
     data: comments = [],
     isLoading,

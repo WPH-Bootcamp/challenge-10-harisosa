@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import { ArticleDetailHeader } from "./section/ArticleDetailHeader";
-import { ArticleDetailHero } from "./section/ArticleDetailHero";
 import { sanitizeHtml } from "@/utils";
-import { Article } from "../types";
+import { Article } from "@/shared/types";
+import { ArticleDetailHeader, ArticleDetailHero } from "@/features/articles/components/section";
+
 
 
 type ArticleDetailProps = {

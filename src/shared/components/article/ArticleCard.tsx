@@ -1,34 +1,32 @@
 'use client'
 
-import React, { useMemo } from "react";
+import React, { PropsWithChildren, useMemo } from "react";
 import Image from "next/image";
-import type { Article } from "@/features/articles/types/article";
+import type { Article } from "@/shared/types";
 import { pickFirstParagraphHtml } from "@/utils";
 import { useRouter } from "next/navigation";
-import { Tags } from "./ui/Tags";
-import { ActionButton, Author } from "./ui";
-import { useCommentsModal } from "@/providers/CommentModalProvider";
-import { useLikePost } from "../mutations";
+import { Tags } from "@/features/articles/components/ui/Tags";
 
-type ArticleCardProps = {
+
+interface ArticleCardProps extends PropsWithChildren  {
   article: Article;
 };
 
-export const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
+export const ArticleCard: React.FC<ArticleCardProps> = ({ article, children }) => {
   const router = useRouter();
 
   const snippetHtml = useMemo(
     () => pickFirstParagraphHtml(article.content),
     [article.content]
   );
-  const { mutate } = useLikePost();
-  const { openCommentModal } = useCommentsModal();
+
   const goToDetail = () => {
     router.push(`/articles/${article.id}`);
   };
 
   return (
-    <><article
+    <>
+    <article
       role="link"
       tabIndex={0}
       className="flex flex-col gap-6 border-b pb-8 md:flex-row cursor-pointer"
@@ -53,17 +51,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
           className="mt-3 text-sm leading-relaxed text-muted-foreground prose prose-sm max-w-none"
           dangerouslySetInnerHTML={{ __html: snippetHtml }} />
         <div className="mt-4 flex flex-col justify-start">
-          <Author author={article.author} datePost={article.createdAt} />
-
-          <div onClick={(e) => e.stopPropagation()}>
-            <ActionButton
-              likes={article.likes}
-              comments={article.comments}
-              onClickComment={() => openCommentModal(article.id)}
-              onClickLike={() => mutate(article.id)
-}
-            />
-          </div>
+            {children}
         </div>
       </div>
     </article>

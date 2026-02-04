@@ -1,18 +1,17 @@
-// src/components/layout/navbar/NavbarAuthedActions.tsx
 "use client";
 
 import React from "react";
 import Link from "next/link";
-import { PencilLine, User, LogOut, Search } from "lucide-react";
-
+import { PencilLine, User, LogOut } from "lucide-react";
 import type { NavbarUser } from "./Navbar";
-import { NavbarAvatar } from "./NavbarAvatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { getInitial } from "@/utils";
 
 type Props = {
   user: NavbarUser;
@@ -43,7 +42,10 @@ export const NavbarAuth: React.FC<Props> = ({
         <DropdownMenu>
           <DropdownMenuTrigger className="outline-none">
             <div className="flex items-center gap-2">
-              <NavbarAvatar name={displayName} avatarUrl={user?.avatarUrl} />
+              <Avatar className="w-[40px] h-[40px]">
+                <AvatarImage src={user?.avatarUrl ?? ''} alt={displayName} />
+                <AvatarFallback>{getInitial(displayName)}</AvatarFallback>
+              </Avatar>
               <span className="text-sm text-gray-900">{displayName}</span>
             </div>
           </DropdownMenuTrigger>
@@ -64,10 +66,13 @@ export const NavbarAuth: React.FC<Props> = ({
         </DropdownMenu>
       </div>
 
-      <div className="flex md:hidden items-center gap-2">
+      <div className="flex md:hidden items-center gap-2 ">
         <DropdownMenu>
-          <DropdownMenuTrigger className="outline-none" onClick={onCloseMobileSearch as any}>
-            <NavbarAvatar name={displayName} avatarUrl={user?.avatarUrl} />
+          <DropdownMenuTrigger className="outline-none" onClick={onCloseMobileSearch}>
+            <Avatar className="w-[40px] h-[40px] rounded-full">
+              <AvatarImage src={user?.avatarUrl ?? ''} alt={displayName} />
+              <AvatarFallback>{getInitial(displayName)}</AvatarFallback>
+            </Avatar>
           </DropdownMenuTrigger>
 
           <DropdownMenuContent align="end" className="w-48">

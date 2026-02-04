@@ -1,16 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "next/navigation";
 
 import { ArticleDetail } from "@/features/articles/components";
 import { useArticleDetail } from "@/features/articles/queries";
-import { useAuthUserQuery } from "@/features/auth/queries";
 import { CommentsPanel } from "@/features/comment/components/CommentsPanel";
 import { useGetComments } from "@/features/comment/queries/useGetComments";
-import { CommentsModal } from "@/features/comment/components/CommentModal";
 import { usePostComment } from "@/features/comment/mutations";
 import { useCommentsModal } from "@/providers/CommentModalProvider";
+import { useGetCurrentUser } from "@/hooks";
 
 const ArticleDetailPage: React.FC = () => {
   const params = useParams<{ id: string }>();
@@ -18,7 +17,7 @@ const ArticleDetailPage: React.FC = () => {
 
   const isValidId = Number.isFinite(postId) && postId > 0;
   const { openCommentModal } = useCommentsModal();
-  const { data: me } = useAuthUserQuery();
+  const { data: me } = useGetCurrentUser();
   const addComment = usePostComment(postId);
 
   const {
@@ -37,7 +36,6 @@ const ArticleDetailPage: React.FC = () => {
     addComment.mutate(message)
   }
 
-  // invalid id state
   if (!isValidId) {
     return (
       <div className="w-full px-4 py-8 sm:px-6 lg:px-8">

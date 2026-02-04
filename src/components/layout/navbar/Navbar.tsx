@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { useAuthUserQuery } from "@/features/auth/queries/useAuthUserQuery";
 
 import { NavbarLogo } from "./NavbarLogo";
 import { NavbarSearch } from "./NavbarSearch";
 import { NavbarGuest } from "./NavbarGuest";
 import { NavbarAuth } from "./NavbarAuth";
+import { useGetCurrentUser } from "@/hooks";
 
 export type NavbarUser = {
   name?: string | null;
@@ -14,7 +14,7 @@ export type NavbarUser = {
 };
 
 export const Navbar: React.FC = () => {
-  const { data } = useAuthUserQuery();
+  const { data } = useGetCurrentUser();
   const user: NavbarUser | null = (data as any)?.data ?? (data as any) ?? null;
 
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
