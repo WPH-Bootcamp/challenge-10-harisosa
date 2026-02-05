@@ -35,7 +35,7 @@ export const MyPostCard: React.FC<MyPostCardProps> = ({ article, onDelete, onSta
         </Button>
 
         <Link
-          href={`/posts/${article.id}/edit`}
+          href={`/edit-post/${article.id}`}
           className="font-medium text-sky-600 underline underline-offset-2"
         >
           Edit

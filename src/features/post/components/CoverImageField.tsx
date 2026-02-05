@@ -10,12 +10,8 @@ import { cn } from "@/lib/utils";
 type Props = {
   value: File | null;
   onChange: (file: File | null) => void;
-
-  // required/error
   required?: boolean;
   error?: string;
-
-  // optional (kalau edit post punya cover existing)
   previewUrl?: string | null;
 
   maxMb?: number;

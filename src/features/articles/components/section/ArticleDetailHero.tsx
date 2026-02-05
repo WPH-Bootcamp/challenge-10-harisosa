@@ -9,12 +9,12 @@ type Props = {
 export const ArticleDetailHero: React.FC<Props> = ({ src, alt }) => {
   return (
     <div className="w-full overflow-hidden flex justify-center rounded-2xl border border-border">
-      <div className="w-full relative  ">
+      <div className="w-full relative">
         <Image
           src={src}
           alt={alt}
           priority
-          className="object-cover"
+          className="w-full"
           width={800}
           height={607}
         />
