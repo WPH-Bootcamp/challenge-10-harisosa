@@ -11,10 +11,10 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 
 import { CommentsPanel } from "./CommentsPanel";
-import { useGetComments } from "../queries/useGetComments";
 
-import { usePostComment } from "../mutations";
 import { useGetCurrentUser } from "@/hooks";
+import { useGetComments } from "@/hooks/useGetComments";
+import { usePostComment } from "@/features/comment/mutations";
 
 type CommentsModalProps = {
   open: boolean;

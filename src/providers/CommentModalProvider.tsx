@@ -1,6 +1,6 @@
 "use client";
 
-import { CommentsModal } from "@/features/comment/components/CommentModal";
+import { CommentsModal } from "@/shared/components/coments/CommentModal";
 import * as React from "react";
 
 type CommentsModalUI = {

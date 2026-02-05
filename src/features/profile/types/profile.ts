@@ -15,3 +15,11 @@ export type UpdatePasswordInput = {
   confirmPassword: string;
 };
 
+
+
+export type PostLikeUser = {
+  id: number;
+  name: string;
+  headline: string | null;
+  avatarUrl: string | null;
+};

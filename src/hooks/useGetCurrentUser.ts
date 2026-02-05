@@ -3,8 +3,8 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { authStorage } from "@/lib/auth-storage"
-import { getAuthUser } from "../features/auth/api/api";
 import { userKeys } from "@/hooks/user-keys";
+import { getAuthUser } from "@/shared/api";
 
 export const useGetCurrentUser = () => {
   const hasToken = !!authStorage.getToken();

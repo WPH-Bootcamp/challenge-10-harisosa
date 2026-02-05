@@ -1,5 +1,5 @@
 import { api } from "@/lib";
-import { MyPostsParams, UpdateProfileInput, UpdatePasswordInput } from "../types";
+import { MyPostsParams, UpdateProfileInput, UpdatePasswordInput, PostLikeUser } from "../types";
 import { ArticlesListResponse } from "@/shared/types";
 
 
@@ -34,4 +34,16 @@ export const updatePassword = async (input: UpdatePasswordInput) => {
 export const deletePost = async (postId: number | string) => {
   const res = await api.delete(`/posts/${postId}`);
   return res.data;
+};
+
+
+
+export const getPostLikes = async (
+  postId: number
+): Promise<PostLikeUser[]> => {
+  const { data } = await api.get<PostLikeUser[]>(
+    `/posts/${postId}/likes`
+  );
+
+  return data;
 };

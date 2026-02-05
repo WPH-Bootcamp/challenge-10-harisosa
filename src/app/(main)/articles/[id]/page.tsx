@@ -5,8 +5,8 @@ import { useParams } from "next/navigation";
 
 import { ArticleDetail } from "@/features/articles/components";
 import { useArticleDetail } from "@/features/articles/queries";
-import { CommentsPanel } from "@/features/comment/components/CommentsPanel";
-import { useGetComments } from "@/features/comment/queries/useGetComments";
+import { CommentsPanel } from "@/shared/components/coments/CommentsPanel";
+import { useGetComments } from "@/hooks/useGetComments";
 import { usePostComment } from "@/features/comment/mutations";
 import { useCommentsModal } from "@/providers/CommentModalProvider";
 import { useGetCurrentUser } from "@/hooks";
@@ -81,7 +81,7 @@ const ArticleDetailPage: React.FC = () => {
 
   return (
     <>
-      <div className="w-full px-4 py-8 sm:px-6 lg:px-80">
+      <div className="w-full px-4 py-8 sm:px-6 lg:px-50">
 
         <ArticleDetail article={article} />
 

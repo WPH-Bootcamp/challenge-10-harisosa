@@ -6,9 +6,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { CommentModel } from "../types/comment";
+import { CommentModel } from "../../../features/comment/types/comment";
 import { dateFormatter, getInitial } from "@/utils";
-import { CurrentUser } from "../types/user";
+import { CurrentUser } from "../../../features/comment/types/user";
+import { CommentItem } from "@/shared/components/coments/CommentItem";
 
 type CommentsPanelProps = {
   totalCount: number;
@@ -102,28 +103,7 @@ export const CommentsPanel: React.FC<CommentsPanelProps> = ({
       ) : (
         <ul className="divide-y max-h-137 overflow-auto">
           {visibleComments.map((c) => (
-            <li key={c.id} className="py-4">
-              <div className="flex gap-3">
-                <Avatar className="h-9 w-9">
-                  {c.author.avatarUrl ? (
-                    <AvatarImage src={c.author.avatarUrl} alt={c.author.name} />
-                  ) : null}
-                  <AvatarFallback>{getInitial(c.author.name)}</AvatarFallback>
-                </Avatar>
-
-                <div className="min-w-0 flex-1">
-                  <p className="text-sm font-semibold leading-none">
-                    {c.author.name}
-                  </p>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    {dateFormatter(c.createdAt)}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-foreground/90">
-                    {c.content}
-                  </p>
-                </div>
-              </div>
-            </li>
+            <CommentItem key={c.id} comment={c} />
           ))}
         </ul>
       )}

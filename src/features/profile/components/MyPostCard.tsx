@@ -10,11 +10,12 @@ import Link from "next/link"
 
 type MyPostCardProps = {
   article: Article,
-  onDelete: () => void,
+  onDelete: (id: number) => void,
+  onStatistic: (id: number) => void
 }
 
 
-export const MyPostCard: React.FC<MyPostCardProps> = ({ article, onDelete }) => {
+export const MyPostCard: React.FC<MyPostCardProps> = ({ article, onDelete, onStatistic }) => {
 
   return (
     <ArticleCard article={article}>
@@ -28,6 +29,7 @@ export const MyPostCard: React.FC<MyPostCardProps> = ({ article, onDelete }) => 
         <Button
           variant="link"
           className="font-medium text-sky-600 underline underline-offset-2"
+          onClick={()=> onStatistic(article.id)}
         >
           Statistic
         </Button>
@@ -41,7 +43,7 @@ export const MyPostCard: React.FC<MyPostCardProps> = ({ article, onDelete }) => 
 
         <Button
           variant="link"
-          onClick={onDelete}
+          onClick={()=> onDelete(article.id)}
           className="font-medium text-rose-600 underline underline-offset-2"
         >
           Delete

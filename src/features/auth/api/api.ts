@@ -4,7 +4,6 @@ import type {
   LoginResponse,
   RegisterPayload,
   RegisterResponse,
-  AuthUserResponse,
 } from "@/features/auth/types";
 
 export const login = async (payload: LoginPayload) => {
@@ -20,10 +19,5 @@ export const register = async (
     payload
   );
 
-  return data;
-};
-
-export const getAuthUser = async (): Promise<AuthUserResponse> => {
-  const { data } = await api.get<AuthUserResponse>("/users/me");
   return data;
 };

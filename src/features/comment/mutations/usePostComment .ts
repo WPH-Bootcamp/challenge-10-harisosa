@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { commentKeys } from "../queries/comment-keys";
+import { commentKeys } from "../../../hooks/comment-keys";
 import { postComment } from "../api/api";
 
 
