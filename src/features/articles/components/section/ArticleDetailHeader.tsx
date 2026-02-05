@@ -1,8 +1,8 @@
 import React from "react";
-import { Tags } from "../ui/Tags";
-import { ActionButton, AuthorComponent } from "../ui";
-import { useLikePost } from "../../mutations";
 import { Article } from "@/shared/types";
+import { useLikePost } from "@/features/articles/mutations";
+import { ActionButton, AuthorComponent } from "@/features/articles/components/ui";
+import { Tags } from "@/features/articles/components/ui/Tags";
 
 type ArticleDetailHeaderProps = {
   article: Article

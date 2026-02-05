@@ -1,4 +1,4 @@
-import { ArticleCardWithAction } from "@/features/articles/components/ArticleCardWithAction";
+import { ArticleCardWithAction } from "@/shared/components/article/ArticleCardWithAction";
 import { Article } from "@/shared/types";
 import React from "react";
 

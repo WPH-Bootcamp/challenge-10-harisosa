@@ -3,5 +3,6 @@ export type Author = {
   name: string;
   username: string;
   email: string;
+  avatarUrl: string | null;
 };
 

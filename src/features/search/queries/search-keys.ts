@@ -1,4 +1,4 @@
-import { SearchArticlesParams } from "../types/search";
+import { SearchArticlesParams } from "@/features/search/types/search";
 
 const SEARCH_KEY = ["search"] as const;
 

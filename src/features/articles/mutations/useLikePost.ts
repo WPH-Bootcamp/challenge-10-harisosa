@@ -1,10 +1,10 @@
 "use client";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { likePostApi } from "../api";
-import { articleKeys } from "../queries/article-keys";
 import { homeArticleKeys } from "@/features/home/queries/article-keys";
 import { Article, ArticlesListResponse } from "@/shared/types";
+import { likePostApi } from "@/features/articles/api";
+import { articleKeys } from "@/features/articles/queries/article-keys";
 
 
 export const useLikePost = () => {
@@ -19,7 +19,7 @@ export const useLikePost = () => {
       const prevDetail = qc.getQueryData<Article>(articleKeys.detail(id));
       const prevLists = qc.getQueriesData<ArticlesListResponse>({
         queryKey: homeArticleKeys.all,
-      });
+      });    
 
       qc.setQueryData<Article>(articleKeys.detail(id), (old) => {
         if (!old) return old;

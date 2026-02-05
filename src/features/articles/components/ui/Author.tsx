@@ -1,19 +1,28 @@
+'use client'
+
 import { Author } from "@/shared/types"
 import { dateFormatter, getInitial } from "@/utils"
+import { useRouter } from "next/navigation"
 
 type AuthorProps = {
-    author : Author,
+    author: Author,
     datePost: string
 }
 
-export const AuthorComponent: React.FC<AuthorProps> = ({author,datePost}) => {
+export const AuthorComponent: React.FC<AuthorProps> = ({ author, datePost }) => {
+    const router = useRouter();
+
+    const onClickProfile = () => {
+        router.push(`/profile/${author.id}`)
+    }
+
     return (
         <div className="flex h-15.25 items-center gap-2">
-            <div className="grid h-7 w-7 place-items-center rounded-full bg-muted text-xs font-semibold">
-                                  {getInitial(author.name)}
+            <div className="grid h-7 w-7 place-items-center rounded-full bg-muted text-xs font-semibold cursor-pointer" onClick={() => onClickProfile()}>
+                {getInitial(author.name)}
             </div>
             <div className="flex items-center gap-2 text-sm leading-5">
-                <span className="font-normal text-gray-900">
+                <span className="font-normal text-gray-900 cursor-pointer"  onClick={() => onClickProfile()}>
                     {author.name}
                 </span>
 

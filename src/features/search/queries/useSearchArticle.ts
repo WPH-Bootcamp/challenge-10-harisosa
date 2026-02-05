@@ -1,7 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { searchArticles } from "@/features/search/api/api";
 import { searchKeys } from "@/features/search/queries/search-keys";
-import { SearchArticlesParams } from "../types/search";
+import { SearchArticlesParams } from "@/features/search/types/search";
+
 
 export const useSearchArticles = (params :SearchArticlesParams) => {
   return useQuery({

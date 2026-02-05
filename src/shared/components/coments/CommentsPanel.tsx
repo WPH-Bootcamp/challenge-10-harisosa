@@ -6,10 +6,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { CommentModel } from "../../../features/comment/types/comment";
-import { dateFormatter, getInitial } from "@/utils";
-import { CurrentUser } from "../../../features/comment/types/user";
+import { getInitial } from "@/utils"
 import { CommentItem } from "@/shared/components/coments/CommentItem";
+import { CommentModel, CurrentUser } from "@/features/comment/types";
 
 type CommentsPanelProps = {
   totalCount: number;

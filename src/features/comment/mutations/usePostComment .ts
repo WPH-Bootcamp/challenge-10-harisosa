@@ -1,6 +1,6 @@
+import { postComment } from "@/features/comment/api/api";
+import { commentKeys } from "@/hooks/comment-keys";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { commentKeys } from "../../../hooks/comment-keys";
-import { postComment } from "../api/api";
 
 
 export const usePostComment = (postId: number) => {

@@ -9,8 +9,7 @@ export const useCreatePost = () => {
   return useMutation({
     mutationFn: (input: CreatePostInput) => createPost(input),
     onSuccess: () => {
-      router.push("/");        // balik ke home
-      router.refresh();        // optional tapi bagus
+      router.push("/");
     },
   });
 };

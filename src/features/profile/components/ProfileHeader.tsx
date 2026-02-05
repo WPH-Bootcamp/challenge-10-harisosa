@@ -3,18 +3,24 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { useGetCurrentUser } from "@/hooks";
+import { UserModel } from "@/shared/types/user";
+import { cn } from "@/lib/utils";
 
 
 type ProfileHeaderProps = {
-  onClickEdit : () => void;
+  user?: UserModel;
+  isCurrentUser?: boolean;
+  onClickEdit?: () => void;
 }
 
-export const ProfileHeader: React.FC<ProfileHeaderProps> = ({onClickEdit}) => {
-    const {data: user} = useGetCurrentUser();
+export const ProfileHeader: React.FC<ProfileHeaderProps> = ({ onClickEdit, isCurrentUser, user }) => {
+
   return (
     <div className="w-full flex justify-center">
-      <div className="w-full rounded-xl border bg-white px-6 py-5 flex items-center justify-between">
+      <div className={cn(
+        "w-full px-6 py-5 flex items-center justify-between",
+        isCurrentUser ? "rounded-xl border bg-white" : ""
+      )}>
         <div className="flex items-center gap-4">
           <Avatar className="h-[80px] w-[80px]">
             <AvatarImage src={user?.avatarUrl} alt={user?.name} />
@@ -27,9 +33,10 @@ export const ProfileHeader: React.FC<ProfileHeaderProps> = ({onClickEdit}) => {
           </div>
         </div>
 
-        <Button variant="link" className="text-sky-600" onClick={onClickEdit}>
+        {isCurrentUser && (<Button variant="link" className="text-sky-600" onClick={onClickEdit}>
           Edit Profile
-        </Button>
+        </Button>)}
+
       </div>
     </div>
   );

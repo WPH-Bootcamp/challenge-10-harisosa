@@ -1,7 +1,7 @@
 
 
+import { SearchArticlesParams } from "@/features/search/types/search";
 import { api } from "@/lib";
-import { SearchArticlesParams } from "../types/search";
 import { ArticlesListResponse } from "@/shared/types";
 
 

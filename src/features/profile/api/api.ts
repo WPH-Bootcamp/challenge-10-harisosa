@@ -1,11 +1,19 @@
+import {
+  MyPostsParams,
+  UpdateProfileInput,
+  UpdatePasswordInput,
+  PostLikeUser,
+  GetPostsByUserParams,
+  GetPostsByUserResponse,
+} from "@/features/profile/types";
 import { api } from "@/lib";
-import { MyPostsParams, UpdateProfileInput, UpdatePasswordInput, PostLikeUser } from "../types";
-import { ArticlesListResponse } from "@/shared/types";
-
-
+import { Article, ArticlesListResponse } from "@/shared/types";
+import { UserModel } from "@/shared/types/user";
 
 export const getMyPosts = async (params: MyPostsParams) => {
-  const res = await api.get<ArticlesListResponse>("/posts/my-posts", { params });
+  const res = await api.get<ArticlesListResponse>("/posts/my-posts", {
+    params,
+  });
   return res.data;
 };
 
@@ -19,7 +27,7 @@ export const updateProfile = async (input: UpdateProfileInput) => {
   if (input.avatar) form.append("avatar", input.avatar);
 
   const res = await api.patch("/users/profile", form, {
-        headers: {
+    headers: {
       "Content-Type": undefined as unknown as string,
     },
   });
@@ -36,14 +44,38 @@ export const deletePost = async (postId: number | string) => {
   return res.data;
 };
 
-
-
-export const getPostLikes = async (
-  postId: number
-): Promise<PostLikeUser[]> => {
-  const { data } = await api.get<PostLikeUser[]>(
-    `/posts/${postId}/likes`
-  );
+export const getPostLikes = async (postId: number): Promise<PostLikeUser[]> => {
+  const { data } = await api.get<PostLikeUser[]>(`/posts/${postId}/likes`);
 
   return data;
+};
+
+export const getUserById = async (userId: number): Promise<UserModel> => {
+  const res = await api.get<UserModel>(`/users/${userId}`);
+  return res.data;
+};
+
+export const getPostsByUser = async ({
+  userId,
+  page = 1,
+  limit = 10,
+}: GetPostsByUserParams): Promise<GetPostsByUserResponse> => {
+  const res = await api.get<GetPostsByUserResponse>(
+    `/posts/by-user/${userId}`,
+    {
+      params: { page, limit },
+    },
+  );
+  const { data, user,page: currentPage ,limit: currentLimitt, total } = res.data;
+
+  return {
+    user,
+    page: currentPage,
+    limit: currentLimitt,
+    total,
+    data: data.map((article: Article) => ({
+      ...article,
+      author: user,
+    })),
+  };
 };

@@ -4,12 +4,12 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
-import { NavbarLogo } from "./NavbarLogo";
-import { NavbarSearch } from "./NavbarSearch";
-import { NavbarGuest } from "./NavbarGuest";
-import { NavbarAuth } from "./NavbarAuth";
 import { useGetCurrentUser } from "@/hooks";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { NavbarLogo } from "@/components/layout/navbar/NavbarLogo";
+import { NavbarSearch } from "@/components/layout/navbar/NavbarSearch";
+import { NavbarAuth } from "@/components/layout/navbar/NavbarAuth";
+import { NavbarGuest } from "@/components/layout/navbar/NavbarGuest";
 
 export type NavbarUser = {
   name?: string | null;

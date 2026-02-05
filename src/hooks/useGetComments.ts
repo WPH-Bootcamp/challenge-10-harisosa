@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { commentKeys } from "./comment-keys";
-import { CommentModel } from "../features/comment/types/comment";
 import { GetCommentByPostId } from "@/shared/api";
+import { commentKeys } from "@/hooks/comment-keys";
+import { CommentModel } from "@/features/comment/types";
 
 export const useGetComments = (postId: number, enabled = true) => {
   return useQuery({

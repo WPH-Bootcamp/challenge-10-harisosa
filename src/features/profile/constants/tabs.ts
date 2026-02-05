@@ -9,3 +9,9 @@ export const StaticTabItem : TabItem<StatisticTab>[]= [
   { key: "like", label: "Like", icon: ThumbsUp  },
   { key: "comment", label: "Comment", icon: MessageCircle },
 ];
+
+
+export const ProfileTabItem : TabItem<ProfileTab>[] = [
+  { key: "posts", label: "Your Post" },
+  { key: "password", label: "Change Password" },
+]
