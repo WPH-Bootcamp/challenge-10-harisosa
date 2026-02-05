@@ -8,7 +8,7 @@ export const createPost = async (input: CreatePostInput) => {
   form.append("title", input.title.trim());
   form.append("content", input.content); // HTML ok
   form.append("tags", input.tags.map((t) => t.trim()).filter(Boolean).join(","));
-  form.append("image", input.image, input.image.name);
+  if(input.image) form.append("image", input.image, input.image.name);
 
   const res = await api.post("/posts", form,{
             headers: {
@@ -18,4 +18,28 @@ export const createPost = async (input: CreatePostInput) => {
 
 
   return res.data;
+};
+
+
+
+export const updatePost = async (
+  postId: number,
+  payload: CreatePostInput
+): Promise<void> => {
+  const fd = new FormData();
+
+  fd.append("title", payload.title);
+  fd.append("content", payload.content);
+  fd.append("tags", payload.tags.join(",")); 
+
+  if (payload.image) {
+    fd.append("image", payload.image);
+  }
+  
+  await api.patch(`/posts/${postId}`, fd, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+      Accept: "application/json",
+    },
+  });
 };
