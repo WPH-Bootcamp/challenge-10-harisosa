@@ -1,7 +1,8 @@
 
-import type { ArticlesListResponse } from "@/features/articles/types";
+
 import { api } from "@/lib";
 import { SearchArticlesParams } from "../types/search";
+import { ArticlesListResponse } from "@/shared/types";
 
 
 export const searchArticles = async (

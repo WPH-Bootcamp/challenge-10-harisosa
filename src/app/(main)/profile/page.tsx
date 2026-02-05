@@ -7,7 +7,7 @@ const ProfilePage: React.FC = () => {
   const [tab, setTab] = useState<ProfileTab>("posts");
   const [edit, setEdit] = useState<boolean>(false)
   return (
-    <><div className="w-full px-4 md:px-8 py-8 lg:px-80">
+    <><div className="w-full px-4 md:px-8 py-8 lg:px-50">
       <div className="w-full">
         <ProfileHeader onClickEdit={() => setEdit(true)} />
         <div className="mt-6">

@@ -1,15 +1,11 @@
 'use client'
 
-import React, { useMemo } from "react";
-import Image from "next/image";
+import React from "react";
 import type { Article } from "@/shared/types";
-import { pickFirstParagraphHtml } from "@/utils";
-import { useRouter } from "next/navigation";
 
 import { useCommentsModal } from "@/providers/CommentModalProvider";
 import { useLikePost } from "@/features/articles/mutations";
-import { ActionButton, Author } from "@/features/articles/components/ui";
-import { Tags } from "@/features/articles/components/ui/Tags";
+import { ActionButton, AuthorComponent } from "@/features/articles/components/ui";
 import { ArticleCard } from "@/shared/components/article/ArticleCard";
 
 
@@ -22,7 +18,7 @@ export const ArticleCardWithAction: React.FC<ArticleCardWithActionProps> = ({ ar
   const { openCommentModal } = useCommentsModal();
   return (
     <ArticleCard article={article}>
-      <Author author={article.author} datePost={article.createdAt} />
+      <AuthorComponent author={article.author} datePost={article.createdAt} />
 
       <div onClick={(e) => e.stopPropagation()}>
         <ActionButton

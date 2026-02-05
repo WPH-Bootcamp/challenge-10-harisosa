@@ -1,12 +1,12 @@
+import { Author } from "@/shared/types"
 import { dateFormatter, getInitial } from "@/utils"
-import { ArticleAuthor } from "../../types"
 
 type AuthorProps = {
-    author : ArticleAuthor,
+    author : Author,
     datePost: string
 }
 
-export const Author: React.FC<AuthorProps> = ({author,datePost}) => {
+export const AuthorComponent: React.FC<AuthorProps> = ({author,datePost}) => {
     return (
         <div className="flex h-15.25 items-center gap-2">
             <div className="grid h-7 w-7 place-items-center rounded-full bg-muted text-xs font-semibold">

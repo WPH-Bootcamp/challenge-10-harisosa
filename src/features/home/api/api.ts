@@ -1,5 +1,6 @@
-import type { Article, ArticlesListResponse } from "@/features/articles/types/article";
+
 import { api } from "@/lib";
+import { ArticlesListResponse } from "@/shared/types";
 
 export type GetArticlesParams = {
   page: number;

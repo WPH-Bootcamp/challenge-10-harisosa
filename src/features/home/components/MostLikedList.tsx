@@ -1,7 +1,7 @@
 import React from "react";
-import type { Article } from "@/features/articles/types/article";
 import { ActionButton } from "@/features/articles/components/ui/ActionButon";
 import { pickFirstParagraphHtml } from "@/utils";
+import { Article } from "@/shared/types";
 
 type MostLikedListProps = {
   title: string;

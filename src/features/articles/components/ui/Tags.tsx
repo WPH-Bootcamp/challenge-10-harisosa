@@ -12,7 +12,7 @@ export const Tags: React.FC<TagsProps> = ({ tags }) => {
             {tags.slice(0, 3).map((tag) => (
                 <Badge
                     key={tag}
-                    variant='secondary'
+                    variant='outline'
                     className="text-xs font-[400]"
                 >
                     {tag}

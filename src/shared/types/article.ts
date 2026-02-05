@@ -12,3 +12,11 @@ export type Article = {
   comments: number;
   author: Author;
 };
+
+
+export type ArticlesListResponse = {
+  data: Article[];
+  total: number;
+  page: number;
+  lastPage: number;
+};

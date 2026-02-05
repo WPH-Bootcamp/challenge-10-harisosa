@@ -30,7 +30,7 @@ export const NavbarAuth: React.FC<Props> = ({
     <>
       <div className="hidden md:flex items-center gap-6">
         <Link
-          href="/write"
+          href="/write-post"
           className="inline-flex items-center gap-2 text-sm font-medium text-sky-600 hover:underline"
         >
           <PencilLine className="h-4 w-4" />

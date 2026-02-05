@@ -1,8 +1,8 @@
 import React from "react";
 import { Tags } from "../ui/Tags";
-import { Article } from "../../types";
-import { ActionButton, Author } from "../ui";
+import { ActionButton, AuthorComponent } from "../ui";
 import { useLikePost } from "../../mutations";
+import { Article } from "@/shared/types";
 
 type ArticleDetailHeaderProps = {
   article: Article
@@ -21,7 +21,7 @@ export const ArticleDetailHeader: React.FC<ArticleDetailHeaderProps> = ({
         <Tags tags={article.tags} />
       </div>
       <div className="mt-4 flex flex-col justify-start">
-        <Author author={article.author} datePost={article.createdAt} />
+        <AuthorComponent author={article.author} datePost={article.createdAt} />
 
         <div onClick={(e) => e.stopPropagation()}>
           <ActionButton

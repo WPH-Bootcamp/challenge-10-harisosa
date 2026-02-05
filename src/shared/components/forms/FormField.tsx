@@ -46,7 +46,7 @@ export const FormField: React.FC<FormFieldProps> = ({
           )}
           aria-invalid={hasError}
           aria-describedby={hasError ? `${id}-error` : undefined}
-          {...inputProps} // ✅ includes inputMode, type, autoComplete, placeholder, etc.
+          {...inputProps}
         />
 
         {rightSlot ? (
@@ -56,12 +56,10 @@ export const FormField: React.FC<FormFieldProps> = ({
         ) : null}
       </div>
 
-      {hasError ? (
+      {hasError && (
         <p id={`${id}-error`} className="text-xs text-red-500">
           {error}
         </p>
-      ) : (
-        <div className="min-h-[14px]" />
       )}
     </div>
   );

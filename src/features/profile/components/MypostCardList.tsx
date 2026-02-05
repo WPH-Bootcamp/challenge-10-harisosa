@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useMyPosts } from "@/features/profile/queries/useMyPosts";
 import { MyPostCard } from "@/features/profile/components/MyPostCard";
@@ -18,23 +17,23 @@ export const MyPostList: React.FC<MyPostListProps> = ({ onDeleteClick }) => {
   const [page, setPage] = useState(1);
   const limit = 10;
 
-  const q = useMyPosts({ page, limit });
+  const {data : articles, isLoading, isError} = useMyPosts({ page, limit });
 
   const posts = useMemo(() => {
-    return q.data?.data?.posts ?? [];
-  }, [q.data]);
+    return articles?.data ?? [];
+  }, [articles]);
 
   const totalPages = useMemo(() => {
-    return q.data?.data?.meta?.totalPages ?? 1;
-  }, [q.data]);
+    return articles?.total ?? 1;
+  }, [articles]);
 
   return (
     <div className="flex justify-center">
       <div className="w-full">
         <div className="mt-6 w-full">
-          {q.isLoading ? (
+          {isLoading ? (
             <div className="text-sm text-muted-foreground">Loading...</div>
-          ) : q.isError ? (
+          ) : isError ? (
             <div className="text-sm text-rose-600">Failed to load posts.</div>
           ) : posts.length === 0 ? (
             <EmptyState

@@ -1,5 +1,5 @@
 import { api } from "@/lib";
-import { Article } from "../types";
+import { Article } from "@/shared/types";
 
 
 export const getArticleById = async (id: number): Promise<Article> => {

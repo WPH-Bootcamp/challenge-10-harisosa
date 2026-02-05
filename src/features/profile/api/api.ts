@@ -1,10 +1,11 @@
 import { api } from "@/lib";
 import { MyPostsParams, UpdateProfileInput, UpdatePasswordInput } from "../types";
+import { ArticlesListResponse } from "@/shared/types";
 
 
 
 export const getMyPosts = async (params: MyPostsParams) => {
-  const res = await api.get("/posts/my-posts", { params });
+  const res = await api.get<ArticlesListResponse>("/posts/my-posts", { params });
   return res.data;
 };
 

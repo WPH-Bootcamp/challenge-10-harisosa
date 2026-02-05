@@ -3,8 +3,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { likePostApi } from "../api";
 import { articleKeys } from "../queries/article-keys";
-import { Article, ArticlesListResponse } from "../types";
 import { homeArticleKeys } from "@/features/home/queries/article-keys";
+import { Article, ArticlesListResponse } from "@/shared/types";
 
 
 export const useLikePost = () => {
