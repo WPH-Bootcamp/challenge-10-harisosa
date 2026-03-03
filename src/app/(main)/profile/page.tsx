@@ -1,0 +1,38 @@
+"use client";
+
+import { Tabs } from "@/components/ui/tabs";
+import { MyPostList, ProfileHeader, ChangePassword, UpdateProfileModal } from "@/features/profile/components";
+import { ProfileTab, ProfileTabItem } from "@/features/profile/constants";
+import { useGetCurrentUser } from "@/hooks";
+import { UserModel } from "@/shared/types/user";
+import React, { useState } from "react";
+
+const ProfilePage: React.FC = () => {
+  const [tab, setTab] = useState<ProfileTab>("posts");
+  const [edit, setEdit] = useState<boolean>(false)
+  const {data: me } = useGetCurrentUser();
+  return (
+    <>
+    <div className="w-full px-4 md:px-8 py-8 lg:px-50">
+      <div className="w-full">
+        <ProfileHeader user={me as UserModel} isCurrentUser={true} onClickEdit={() => setEdit(true)} />
+        <div className="mt-6">
+          <Tabs<ProfileTab> value={tab} onChange={(value) => setTab(value)} items={ProfileTabItem} />
+        </div>
+
+        <div className="mt-3">
+          {
+            tab === "posts" ? <MyPostList /> : <ChangePassword />
+          }
+        </div>
+      </div>
+    </div>
+      <UpdateProfileModal
+        open={edit}
+        onClose={() => setEdit(false)}
+      />
+    </>
+  );
+};
+
+export default ProfilePage;
